@@ -55,7 +55,7 @@ def my_form_post():
     sentiment = " ".join(re.findall("[a-zA-Z]+", sent))
 
 
-    return render_template('form.html', confidence=confidence, sentence=text_final, sentiment=sentiment)
+    return render_template('form.html', final=confidence, sentence=text_final, text2=sentiment)
 
 if __name__ == "__main__":
     # app.run(debug=True, host="127.0.0.1", port=8000, threaded=True)
