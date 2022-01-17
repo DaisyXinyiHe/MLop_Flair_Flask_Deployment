@@ -15,9 +15,9 @@ table, th, td {
 
             <input class="example_a" type="submit">
         </form>
-        {% if confidence %}
+        {% if final %}
         <div>
-            <h2>The Sentiment of</h2> '{{ sentence }}' <h2>is {{ confidence *100}}% <td>{{sentiment}}</td> !</h2>
+            <h2>The Sentiment of</h2> '{{ sentence }}' <h2>is {{ final *100}}% <td>{{ text2 }}</td> !</h2>
 
             {% else %}
             <p></p>
