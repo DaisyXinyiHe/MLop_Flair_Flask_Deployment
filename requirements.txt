@@ -5,5 +5,5 @@ Werkzeug==0.14.1
 nltk>=3.4.5
 requests
 flair>=0.10
-
+pymysql
 
