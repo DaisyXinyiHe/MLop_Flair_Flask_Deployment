@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1naQ4ql_aacm3_O9APyoY4EgxPH6Kw5GU
 """
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template,jsonify
 import nltk
 from string import punctuation
 import re
@@ -15,6 +15,7 @@ from nltk.corpus import stopwords
 from flair.models import TextClassifier
 from flair.data import Sentence
 import sys
+from db import get_sentences, add_sentences
 
 nltk.download('stopwords')
 
@@ -53,9 +54,15 @@ def my_form_post():
     sent = str(sentence.labels[0])
     confidence = float(re.findall("\d+\.\d+", sent)[0])
     sentiment = " ".join(re.findall("[a-zA-Z]+", sent))
+    
+    ## Add entry to database
+    add_sentences(text1, sentiment)
+    
+    ## Print current entries
+    all_entries = get_sentences()
 
 
-    return render_template('form.html', final=confidence, text1=text_final, text2=sentiment)
+    return render_template('form.html', final=confidence, text1=text_final, text2=sentiment, text3=all_entries)
 
 if __name__ == "__main__":
     # app.run(debug=True, host="127.0.0.1", port=8000, threaded=True)
