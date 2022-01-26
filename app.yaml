@@ -1,7 +1,0 @@
-#app.yaml
-runtime: python38
-
-env_variables:
-  CLOUD_SQL_USERNAME: daisy
-  CLOUD_SQL_PASSWORD: 4thbrain
-  CLOUD_SQL_DATABASE_NAME: daisy-demo
