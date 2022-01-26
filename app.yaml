@@ -1,5 +1,5 @@
 #app.yaml
-runtime: python3.8
+runtime: python38
 
 env_variables:
   CLOUD_SQL_USERNAME: daisy
