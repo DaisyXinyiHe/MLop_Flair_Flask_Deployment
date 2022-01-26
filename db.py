@@ -32,9 +32,9 @@ def get_sentences():
     conn.close()
     return all_sentences
 
-def add_sentences(entry):
+def add_sentences(sentence, sentiment):
     conn = open_connection()
     with conn.cursor() as cursor:
-        cursor.execute('INSERT INTO all_sent (sentence, sentiment) VALUES(%s, %s)', (all_semt[“sentence”], all_sent[“sentiment”]))
+        cursor.execute('INSERT INTO all_sent (sentence, sentiment) VALUES(%s, %s)', (all_sent[“sentence”], all_sent[“sentiment”]))
     conn.commit()
     conn.close()
